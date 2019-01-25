@@ -236,7 +236,7 @@ Figure \ref{autoloading} shows the management of the query autoloading queue. $h
 \begin{itemize}
     \item Remove if the targeting cache is not requested for a long time. The time of not be requested is get from $t_{nr} = t_n - t_{lr}$, if $t_{nr} > t_{to}$, the task will be discarded.
     \item Remove if efficiency of fetching data from database is high. This may be confused. The intention of auto load is pre-load the data that cost a lot of time and resources and be accessed frequently. Hence, the data that obtaining efficiency is high should not occupy the space of auto load. The standard of determination is $c > 100$ and $t_a < 10$.
-    \item Remove if usage rate is low. If the cache, which is requested only once within the preset timeout, were added to auto load queue, that will go against the purposes of auto load. Therefore, only removing the task that the targeting cache is not requested for a long time is not enough. The usage rate can be get from $r = \frac{c}{\frac{t_n - t_{fr}}{3600000}}$, the meaning of $r$ is how much the cache is requested per hours. If the task has been running for more than 1 hour and the average loading time is less than 1000 ms and $r$ is less than 60, the task will be removed.
+    \item Remove if usage rate is low. If the cache, which is requested only once within the preset timeout, were added to auto load queue, that will go against the purposes of auto load. Therefore, only removing the task that the targeting cache is not requested for a long time is not enough. The usage rate can be get from $r = \frac{c}{t_u}, t_u = {{t_n - t_{fr}}\over{3600000}}$, the meaning of $r$ is how much the cache is requested per hours. If the task has been running for more than 1 hour and the average loading time is less than 1000 ms and $r$ is less than 60, the task will be removed.
 \end{itemize}{}
 
 The last part of auto load is when to refresh the cache. As a pre-loading schema, the cache should be refreshed before expired. For this reason, setting alarm time is valuable. Experiments prove that the default alarm time should be set $t_e - 120$ if $t_e \geq 600$ or $t_e - 60$ if $t_e < 600$, which $t_e$ is a preset parameter determining cache expired time.
@@ -351,14 +351,14 @@ We set up six experiments to test the ACALFA effect. Cache expired time we set w
 \begin{figure} [htb]
     \centering
     \includegraphics[width=1\linewidth]{img/exp3-4.png}
-    \caption{Response time of Exp1 and Exp2}
+    \caption{Response time of Exp3 and Exp4}
     \label{exp3-4}
 \end{figure}
 
 \begin{figure} [htb]
     \centering
     \includegraphics[width=1\linewidth]{img/exp5-6.png}
-    \caption{Response time of Exp1 and Exp2}
+    \caption{Response time of Exp5 and Exp6}
     \label{exp5-6}
 \end{figure}
 
