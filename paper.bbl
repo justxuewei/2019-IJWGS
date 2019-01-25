@@ -1,0 +1,114 @@
+\begin{thebibliography}{10}
+
+\bibitem{zanella2014internet}
+Andrea Zanella, Nicola Bui, Angelo Castellani, Lorenzo Vangelista, and Michele
+  Zorzi.
+\newblock Internet of things for smart cities.
+\newblock {\em IEEE Internet of Things journal}, 1(1):22--32, 2014.
+
+\bibitem{kaisler2013big}
+Stephen Kaisler, Frank Armour, J~Alberto Espinosa, and William Money.
+\newblock Big data: Issues and challenges moving forward.
+\newblock In {\em System Sciences (HICSS), 2013 46th Hawaii International
+  Conference on}, pages 995--1004. IEEE, 2013.
+
+\bibitem{nishtala2013scaling}
+Rajesh Nishtala, Hans Fugal, Steven Grimm, Marc Kwiatkowski, Herman Lee,
+  Harry~C Li, Ryan McElroy, Mike Paleczny, Daniel Peek, Paul Saab, et~al.
+\newblock Scaling memcache at facebook.
+\newblock In {\em nsdi}, volume~13, pages 385--398, 2013.
+
+\bibitem{ma2017segment}
+Kun Ma, Bo~Yang, Zhe Yang, and Ziqiang Yu.
+\newblock Segment access-aware dynamic semantic cache in cloud computing
+  environment.
+\newblock {\em Journal of Parallel and Distributed Computing}, 2017.
+
+\bibitem{manjhi2005finding}
+Amit Manjhi, Vladislav Shkapenyuk, Kedar Dhamdhere, and Christopher Olston.
+\newblock Finding (recently) frequent items in distributed data streams.
+\newblock In {\em Data Engineering, 2005. ICDE 2005. Proceedings. 21st
+  International Conference on}, pages 767--778. IEEE, 2005.
+
+\bibitem{wu2011characterization}
+Carole-Jean Wu and Margaret Martonosi.
+\newblock Characterization and dynamic mitigation of intra-application cache
+  interference.
+\newblock In {\em Performance Analysis of Systems and Software (ISPASS), 2011
+  IEEE International Symposium on}, pages 2--11. IEEE, 2011.
+
+\bibitem{ma2017column}
+Kun Ma and Bo~Yang.
+\newblock Column access-aware in-stream data cache with stream processing
+  framework.
+\newblock {\em Journal of Signal Processing Systems}, 86(2-3):191--205, 2017.
+
+\bibitem{davison2001web}
+Brian~D Davison.
+\newblock A web caching primer.
+\newblock {\em IEEE internet computing}, 5(4):38--45, 2001.
+
+\bibitem{kumar2008new}
+Chetan Kumar and John~B Norris.
+\newblock A new approach for a proxy-level web caching mechanism.
+\newblock {\em Decision Support Systems}, 46(1):52--60, 2008.
+
+\bibitem{vakali2003content}
+Athena Vakali and George Pallis.
+\newblock Content delivery networks: Status and trends.
+\newblock {\em IEEE Internet Computing}, 7(6):68--74, 2003.
+
+\bibitem{mookerjee2002analysis}
+Vijay~S Mookerjee and Yong Tan.
+\newblock Analysis of a least recently used cache management policy for web
+  browsers.
+\newblock {\em Operations Research}, 50(2):345--357, 2002.
+
+\bibitem{candan2001enabling}
+K~Sel{\c{c}}uk Candan, Wen-Syan Li, Qiong Luo, Wang-Pin Hsiung, and Divyakant
+  Agrawal.
+\newblock Enabling dynamic content caching for database-driven web sites.
+\newblock In {\em ACM SIGMOD Record}, volume~30, pages 532--543. ACM, 2001.
+
+\bibitem{zawodny2009redis}
+Jeremy Zawodny.
+\newblock Redis: Lightweight key/value store that goes the extra mile.
+\newblock {\em Linux Magazine}, 79, 2009.
+
+\bibitem{hafeez2017realizing}
+Ubaid~Ullah Hafeez, Deepthi Male, Sharath~Kumar Naeni, Muhammad Wajahat, and
+  Anshul Gandhi.
+\newblock Realizing an elastic memcached via cached data migration.
+\newblock {\em Restoration}, 23(24):25, 2017.
+
+\bibitem{scheuermann1998data}
+Peter Scheuermann, Gerhard Weikum, and Peter Zabback.
+\newblock Data partitioning and load balancing in parallel disk systems.
+\newblock {\em The VLDB Journal—The International Journal on Very Large Data
+  Bases}, 7(1):48--66, 1998.
+
+\bibitem{zhao2014dache}
+Yaxiong Zhao, Jie Wu, and Cong Liu.
+\newblock Dache: A data aware caching for big-data applications using the
+  mapreduce framework.
+\newblock {\em Tsinghua science and technology}, 19(1):39--50, 2014.
+
+\bibitem{kiczales2001aspect}
+Gregor Kiczales and Erik Hilsdale.
+\newblock Aspect-oriented programming.
+\newblock In {\em ACM SIGSOFT Software Engineering Notes}, volume~26, page 313.
+  ACM, 2001.
+
+\bibitem{ma2013toward}
+Kun Ma, Runyuan Sun, and Ajith Abraham.
+\newblock Toward a module-centralized and aspect-oriented monitoring framework
+  in clouds.
+\newblock {\em J. UCS}, 19(15):2241--2265, 2013.
+
+\bibitem{pinto2017lara}
+Pedro Pinto, Tiago Carvalho, Jo{\~a}o Bispo, and Jo{\~a}o~MP Cardoso.
+\newblock Lara as a language-independent aspect-oriented programming approach.
+\newblock In {\em Proceedings of the Symposium on Applied Computing}, pages
+  1623--1630. ACM, 2017.
+
+\end{thebibliography}
