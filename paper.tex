@@ -191,7 +191,7 @@ There are several components to implement ACALFA:
 
 Load waiting strategy is used to prevent multiple requests for requesting same data from the physical database at the same time. It is a kind of avoiding of resource wasting. Once hot-spot data miss and there are mass of requests flowing into database within a very short period time. The principle is to elect a leader to fetch data from database, others, requesting for data with the same key, will be suspended until the leader processed. Figure \ref{loadwaiting} shows the process of load waiting strategy.
 
-The framework identify the same requests by the cacheKey, which is a unique identification for the data. Processing is a hash map storing the different processing requests. A request want to fetch the data from database, $DataHelper$ will search whether the same request is being processed. The framework try to get request from Processing hash map by cacheKey. If the result is null, it indicates that the request is a new request. In the concurrency, there are mass of the requests, the framework will select the first request as a leader to fetch data from physical data, others are waiting until the leader notify them and bring the data back. The speci?c load waiting strategy algorithm is as Algorithm \ref{loadwaitingalg}.
+The framework identify the same requests by the cacheKey, which is a unique identification for the data. Processing is a hash map storing the different processing requests. A request want to fetch the data from database, $DataHelper$ will search whether the same request is being processed. The framework try to get request from Processing hash map by cacheKey. If the result is null, it indicates that the request is a new request. In the concurrency, there are mass of the requests, the framework will select the first request as a leader to fetch data from physical data, others are waiting until the leader notify them and bring the data back. The specific load waiting strategy algorithm is as Algorithm \ref{loadwaitingalg}.
 
 \begin{algorithm}
 \caption{Load waiting strategy algorithm \textit{loadwaiting}}
@@ -366,7 +366,7 @@ We use the 90th percentile response time for performance measurement. Figure \re
 
 \subsection{Resource Consumption}
 
-Resource consumption experiment is set for validating the load wait performance. Therefore, the cache is disabled and the query statement is changed to join two tables for increasing cpu usage. There are 30 threads and request 10 times repeatedly. The CPU usage is shown in figure \ref{resource}. From results, CPU usage of non-load-wait lasted for a long time in 100\%. However, ACALFA selected a leader to fetch data in each round of request to reduce the CPU consumption. According to the results, we found wait-load strategy is effective in cache miss situation. Coordinate with auto-load, ACALFA can deal with complex and high-concurrent scenario well.
+Resource consumption experiment is set for validating the load wait performance. Therefore, the cache is disabled and the query statement is changed to join two tables for increasing cpu usage. There are 30 threads and request 10 times repeatedly. The CPU usage is shown in figure \ref{resource}. From results, CPU usage of non-load-wait lasted for a long time in 100\%. However, ACALFA selected a leader to fetch data in each round of request to reduce the CPU consumption. When elapsed time is more than 30 seconds, the CPU usage of ACALFA is higher than Spring Cache as distributing the data of leader will consume some times. But the most important thing is ACALFA keeps the system run stably. According to the results, we found wait-load strategy is effective in cache miss situation. Coordinate with auto-load, ACALFA can deal with complex and high-concurrent scenario well.
 
 \begin{figure} [htb]
     \centering
@@ -388,7 +388,13 @@ Resource consumption experiment is set for validating the load wait performance.
 
 \section{Conclusions}
 \label{Conclusions}
+
 The purpose of a cache is to duplicate frequently accessed or important data in such a way that it can be accessed very fast and close to where it is needed. In the big data era, caching generally moves data from a low cost. This paper introduces an aspect-oriented cache auto load framework with annotation. Several experiments are illustrated that our cache framework has a good effect on the complex business with high concurrency. In the future work, memory resource cost will be optimized to increase cache hit ratio.
+
+\section{Future Work}
+\label{futurework}
+
+In the future work, we are going to look for an algorithm to track hot-spot data automatically according to real-time data, instead track them by Annotation. Besides, how to promote cache performance is still a heart of matter to address, like enhancing distributed ability, adding auto-load priority to make sure the important data can be accessed anytime even in the heavy-load environment.
 
 
 %\section*{Acknowledgement}
