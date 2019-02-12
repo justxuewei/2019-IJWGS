@@ -384,7 +384,16 @@ Resource consumption experiment is set for validating the load wait performance.
      \label{pressuretest}
  \end{figure}
 
- The pressure test is getting access to a page repeatedly within one minute in order to test the stability of ACALFA in high concurrency. We used 100 threads to simulate 100 users for requesting the targeting page simultaneously. We can infer the system availability and response speed from the report. The query statement is same as resource consumption experiment. We can learn ACALFA response is 25\% faster than Spring Cache, processing speed is 48\% faster and stability has improved 36\% from above figure \ref{pressuretest}.
+ The pressure test is getting access to a page repeatedly within one minute in order to test the stability of ACALFA in high concurrency. We used 100 threads to simulate 100 users for requesting the targeting page simultaneously. It should be noted that we use JMeter, an open source pressure test tool, to do this experiment. The formula \ref{throughput} explains how to calculate throughput in JMeter.
+ 
+\begin{center}
+\begin{eqnarray}
+    \label{throughput}
+    throughput = \frac{number\ of\ request}{total\ time}
+\end{eqnarray}
+\end{center}
+ 
+ We can infer the system availability and response speed from the report. The query statement is same as resource consumption experiment. We can learn ACALFA response is 25\% faster than Spring Cache, processing speed is 48\% faster and stability has improved 36\% from above figure \ref{pressuretest}.
 
 \section{Conclusions}
 \label{Conclusions}
