@@ -67,7 +67,7 @@ Vol. \theVOL, No. \theISSUE, \thePUBYEAR\hfill\thepage}}%
 \begin{table}[b]%
 \NINE\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcr@{}}%
 \\[-12pt]
-Copyright \copyright\ 2016 Inderscience Enterprises Ltd. & &%
+Copyright \copyright\ 2019 Inderscience Enterprises Ltd. & &%
 \end{tabular*}%
 \vskip -10pt%
 %\vskip -35pt%
@@ -79,13 +79,55 @@ Copyright \copyright\ 2016 Inderscience Enterprises Ltd. & &%
 \begin{document}%
 %%%%%%%%%%%%%%%%%
 
+\thispagestyle{plain}
+\setcounter{page}{1}
+\LRH{K. Ma, X. Niu, Z. Yu, and K. Ji}
+\RRH{Toward an Aspect-oriented Cache Autoloading Framework with Annotation}
+\VOL{19}
+\ISSUE{1}
+\PUBYEAR{2019}
+\BottomCatch
+\CLline
+
 \title{Toward an Aspect-oriented Cache Autoloading Framework with Annotation}
+
+\authorA{Kun Ma*\\
+*Corresponding author}
+%
+\affA{Shandong Provincial Key Laboratory of Network Based Intelligent Computing,\\ University of Jinan,\\ Jinan 250022, Shandong, China \\
+ E-mail: ise\_mak@ujn.edu.cn, kun.ma.cn@ieee.org\\
+*Corresponding author}
+%
+\authorB{Xuewei Niu}
+\affB{Shandong Provincial Key Laboratory of Network Based Intelligent Computing,\\ University of Jinan,\\ Jinan 250022, Shandong, China \\
+E-mail: a@niuxuewei.com}
+
+\authorC{Ziqiang Yu}
+\affC{Shandong Provincial Key Laboratory of Network Based Intelligent Computing,\\ University of Jinan,\\ Jinan 250022, Shandong, China \\
+E-mail: ise\_yuzq@ujn.edu.cn}
+
+\authorD{Ke Ji}
+\affD{Shandong Provincial Key Laboratory of Network Based Intelligent Computing,\\ University of Jinan,\\ Jinan 250022, Shandong, China \\
+E-mail: ise\_jik@ujn.edu.cn}
 
 \begin{abstract}
 In recent years, researches focus on addressing the query bottleneck issue using data cache in the Internet-of-Things. However, the challenges of this method are how to implement autonomous management of data cache. In this paper, we propose an aspect-oriented cache autoloading framework (ACALFA). The architecture, annotation, expression are introduced to address cache auto load. There are some features for improving performance, such as load waiting, autoloading, loose coupling, and batch delete of cache. The result of experiments indicated that our approach is nearly 25\% faster than other cache frameworks in the scenario that data size is enormous and concurrency is very high.
 \end{abstract}
 
 \KEYWORD{Big Data; Data Cache; Aspect-Oriented Programming; Annotation; Pointcut; Grid Services.}
+
+\REF{to this paper should be made as follows: Ma, K., Niu, X., Yu, Z., and Ji, K. (\thePUBYEAR) `Toward an Aspect-oriented Cache Autoloading Framework with Annotation', {\it Int. J. Web and Grid Services}, Vol. \theVOL, No. \theISSUE, pp.xxx\textendash xxx.}
+
+\begin{bio}
+Dr. Kun Ma received his Ph.D degree in Computer Software and Theory from Shandong University, Jinan, Shandong, China, in 2011. He is an Associate Professor in School of Information Science and Engineering, University of Jinan, China. He is the Editor-in-Chief of International Journal of Autonomic Computing, editorial board member of International Journal of Grid and Utility Computing. His research interests include situation awareness of public opinion, data intensive computing, big data management, and other big data processing technology. More information at: http://kunma.net.\vs{9}
+
+\noindent Xuewei Niu received his bachelor degree in Computer Science and Technology from University of Jinan in 2019. His research interests include big data management and stream computing.
+
+\noindent Ziqiang Yu received PhD degree from Shandong University, China. His research interests include streaming data processing, spatio-temporal data querying, and urban computing.
+
+\noindent Ke Ji received PhD degree from Beijing Jiaotong University, China. His current research interests include recommender system, information retrieval and machine learning.
+
+\end{bio}
 
 \maketitle
 
@@ -96,12 +138,12 @@ In recent years, researches focus on addressing the query bottleneck issue using
 \subsection{Background}
 Internet-of-Things (IoT) \cite{zanella2014internet} devices, connected to each other, will generate large-scale data such as weather monitoring data over a relatively short period of time. The real-time IoT data also brings significant challenges for data access and storage \cite{kaisler2013big}. For an optimization, the content routers such as Machine-to-Machine (M2M) gateways in the Internet can cache these results without relaying user requests all the way to data sources. The idea is similar to Content Delivery Network (CDN) of Web pages and multimedia files. However, these systems face cache penetration in the case of high concurrency \cite{nishtala2013scaling}.
 
-Cache is a collection of data duplicating original values stored in memory, usually for easier access. Moreover, it can reduce the server response time efficiently \cite{ma2017segment}. There are many ways to implement the cache, such as the cache based on browser, the cache based on CDN \cite{manjhi2005finding} and the cache based on applications \cite{wu2011characterization}. Relative Database Management Systems (RDBMSs) combined with the NoSQL databases is the primary solution for the cache based on server, RDBMSs are used for data persistence, in-memory NoSQL databases are used for caching.
+In computing, cache is a software component that stores data in memory so that future requests for that data can be served faster. A cache hit occurs reducing server response time when the requested data can be found in a cache, while a cache miss occurs when it cannot \cite{ma2017segment}. There are many examples of caches such as the cache based on browser, the cache based on CDN \cite{manjhi2005finding} and the cache based on applications \cite{wu2011characterization}. Because of performance bottlenecks from queries on Relative Database Management Systems (RDBMSs), it is now common to deploy a memory cache server in conjunction with a database to improve access performance \cite{ma2017column}.
 
 There are a lot of caches, but they all have some shortcomings. Current cache frameworks have some shortcomings. First, their expire policies have not particular optimization for the data that high-frequent access or need a long time to be processed. When the data concentrated is expired, a cache avalanche issue occurred, in case all requests foster together. This case might lead to the instability of the server \cite{ma2017column}. Second, cache logic and business logic are tightly coupled. It leads to cumbersome cache operations and is difficult for developers to maintain the cache data. Third, the cache may cause namespace conflict using distributed key-value database like Redis cluster.
 
 \subsection{Contributions}
-In this paper, we propose an aspect-oriented cache auto load framework with annotation. Contributions of our framework are concluded as follows.
+In this paper, we propose an aspect-oriented cache auto load framework with annotation (ACALFA for short). Contributions of our cache framework are concluded as follows.
 
 \begin{itemize}
   \item Avoid cache breakdown and cache penetration using load waiting and autoloading. Autoloading can implement hot-spot data pre-loading. The cache work because the data can be obtained from memory and cut down the read back of source. To further reduce the read back of source, we can make the hot-spot data lurk in memory constantly and update it regularly. Moreover, the data that need to a long time to process also benefit from this strategy, system can load them before peak coming. Load waiting can reduce the server pressure when load data from database. Once the cache miss, there are many requests flowing into the database, but for the same data. Load wait strategy select a leader to request the data, others wait until the data are provided by the leader.
@@ -117,11 +159,11 @@ The remainder of the paper is organized as follows. The current work of cache fr
 \label{RelatedWork}
 
 \subsection{Cache Framework}
-Caching of data with weak consistency can achieve transparency. Typically, the cache content is periodically refreshed. There are different levels for caching performance, namely the browser cache \cite{davison2001web}, proxy cache \cite{kumar2008new}, Content Delivery Network (CDN) cache \cite{vakali2003content}, and server level cache \cite{ma2017column}. Browser cache is closest to the end user and can speed up page loads by storing the static files, such as a single page, on user's local storage media \cite{mookerjee2002analysis}. CachePortal \cite{candan2001enabling} relies on timestamps and HTTP logs to conservatively determine which pages to invalidate. It has a unique form of weak, time-lagged consistency. Proxy caches are situated at network access points for web users \cite{kumar2008new}. Consequently, proxy caches can store documents and directly serve requests for them in the network, thereby avoiding repeated traffic to web servers. CDN is similar to proxy caching \cite{vakali2003content}. But the difference is that the servers of CDN are distributed around the users, data is obtained from the server with least delay. The disadvantage of CDN cache is that excessive consumption of resources due to continuous analysis. Proxy cache and CDN solves the problem of the local cache cannot be shared. Although some of these products implement dynamic page cache, the effects are not good. In particular, server data processing efficiency is not effectively improved. Therefore, the present mainstream of cache is server level cache.
+Caching of data with weak consistency can achieve transparency. Weak consistency of caching of data leads to the transparency of using. Typically, in-memory caching of data is periodically refreshed. There are different kinds of cache, namely the browser cache \cite{davison2001web}, proxy caching \cite{kumar2008new}, Content Delivery Network (CDN) cache \cite{vakali2003content}, and cache at server level \cite{ma2017column}. Browser cache contains records of every item viewed or downloaded while Internet surfing in local storage \cite{mookerjee2002analysis}. For example, CachePortal \cite{candan2001enabling} is to enable caching of dynamic contents generated by data-driven Web applications. It relies on timestamps and HTTP logs with weak time-lagged consistency. Proxy caching is a feature of proxy servers that stores content on the proxy server itself for web users \cite{kumar2008new}. It can store documents and directly serve requests for them in the network, thereby avoiding repeated traffic to web servers. Compared with proxy caching, CDN has a distributed architecture with low latency \cite{vakali2003content}. The disadvantage of CDN cache is that excessive consumption of resources due to continuous analysis. Both proxy caching and CDN addressed the issues that local cache cannot. Cache at server level is often the culprit of confusion and frustration when it comes to performing dynamic updates.
 
-Recently, there are some new cache frameworks. The combination of RDBMSs and in-memory NoSQL is the mainstream architecture of server cache. Several solutions are proposed such as Redis \cite{zawodny2009redis}, Memcached \cite{hafeez2017realizing}, and EhCache. RDBMSs are used to persist data, and in-memory databases are used to store high-frequency data \cite {ma2017column}. Redis performs better for high concurrency and memory consumption. As an improvement, Memcache pool is used to duplicate high-frequency data into a dedicated data pool by cache access frequency and cache expired cost \cite{nishtala2013scaling}. This feature is achieved by the time of the cache analysis by some dedicated servers.
+Recently, there are some new cache frameworks such as the integration of RDBMSs and in-memory NoSQL. There are some cache products such as Redis \cite{zawodny2009redis}, Memcached \cite{hafeez2017realizing}, and EhCache. In this solution, persist data are stored in RDBMS, and high-frequency data are stored in-memory databases {ma2017column}. Redis is an in-memory data structure store for high concurrency and memory consumption. It supports transactions and different levels of on-disk persistence, and provides high availability automatic partitioning. As an improvement, Memcached is an in-memory key-value store by cache access frequency and cache expired cost \cite{nishtala2013scaling}. It is achieved by the time of the cache analysis by distributed dedicated servers.
 
-There are some optimizations of cache frameworks. For example, the performance of distributed storage with disks is studied \cite{scheuermann1998data}. Another data-aware cache framework (Dache) using MapReduce is proposed \cite{zhao2014dache}. In Dache, tasks submit their intermediate results to the cache manager. A task queries the cache manager before executing the actual computing work. The cache manager of ACALFA is a general framework that supports these cache frameworks.
+There are some optimizations of cache frameworks. For example, the performance of distributed storage with disks is studied \cite{scheuermann1998data}. Another data-aware cache framework (Dache) using MapReduce is proposed \cite{zhao2014dache}. In Dache, tasks submit their intermediate results to the cache manager. A task queries the cache manager before executing the actual computing work. In our paper, we propose a general management framework called ACALFA that supports these caches.
 
 \subsection{Aspect-Oriented Programming}
 Aspect-Oriented Programming (AOP) is a programming methodology for separating crosscutting concerns \cite{kiczales2001aspect}. This method encapsulates behaviors that affect multiple classes into reusable modules \cite{ma2013toward}. By weaving rules specified by the developer, aspects are incorporated to form the final system. In this paper, we attempt to use this method to intercept cache events to implement the separation of cache from the business.
@@ -384,16 +426,7 @@ Resource consumption experiment is set for validating the load wait performance.
      \label{pressuretest}
  \end{figure}
 
- The pressure test is getting access to a page repeatedly within one minute in order to test the stability of ACALFA in high concurrency. We used 100 threads to simulate 100 users for requesting the targeting page simultaneously. It should be noted that we use JMeter, an open source pressure test tool, to do this experiment. The formula \ref{throughput} explains how to calculate throughput in JMeter.
- 
-\begin{center}
-\begin{eqnarray}
-    \label{throughput}
-    throughput = \frac{number\ of\ request}{total\ time}
-\end{eqnarray}
-\end{center}
- 
- We can infer the system availability and response speed from the report. The query statement is same as resource consumption experiment. We can learn ACALFA response is 25\% faster than Spring Cache, processing speed is 48\% faster and stability has improved 36\% from above figure \ref{pressuretest}.
+ The pressure test is getting access to a page repeatedly within one minute in order to test the stability of ACALFA in high concurrency. We used 100 threads to simulate 100 users for requesting the targeting page simultaneously. We can infer the system availability and response speed from the report. The query statement is same as resource consumption experiment. We can learn ACALFA response is 25\% faster than Spring Cache, processing speed is 48\% faster and stability has improved 36\% from above figure \ref{pressuretest}.
 
 \section{Conclusions}
 \label{Conclusions}
@@ -406,8 +439,8 @@ The purpose of a cache is to duplicate frequently accessed or important data in 
 In the future work, we are going to look for an algorithm to track hot-spot data automatically according to real-time data, instead track them by Annotation. Besides, how to promote cache performance is still a heart of matter to address, like enhancing distributed ability, adding auto-load priority to make sure the important data can be accessed anytime even in the heavy-load environment.
 
 
-%\section*{Acknowledgement}
-%The project is funded in part by the National Institutes of Health, under Grant No. 5R01CA136535.
+\section*{Acknowledgement}
+This work was supported by the National Natural Science Foundation of China (61772231), the Shandong Provincial Natural Science Foundation (ZR2017MF025), the Shandong Provincial Key R\&D Program of China (2018CXGC0706), the Science and Technology Program of University of Jinan (XKY1734 \& XKY1828), and the Project of Shandong Provincial Social Science Program (18CHLJ39).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

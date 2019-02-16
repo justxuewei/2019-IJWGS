@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2018.8.10)  26 OCT 2018 19:32
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2018.12.21)  15 FEB 2019 01:04
 entering extended mode
 **paper.tex
-(E:\科研\论文\缓存\AutoLoadCache\IJWGS\paper.tex
+(E:\科研\论文\缓存\AutoLoadCache\IJWGS\最终稿\paper.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for loaded.
-(E:\科研\论文\缓存\AutoLoadCache\IJWGS\singlecol-new.cls
+(E:\科研\论文\缓存\AutoLoadCache\IJWGS\最终稿\singlecol-new.cls
 
 LaTeX Warning: You have requested document class `singlecol-new',
                but the document class provides `singlecol'.
@@ -485,7 +485,7 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \c@scheme=\count143
 \c@case=\count144
 
-(E:\科研\论文\缓存\AutoLoadCache\IJWGS\paper.aux)
+(E:\科研\论文\缓存\AutoLoadCache\IJWGS\最终稿\paper.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
 LaTeX Font Info:    ... okay on input line 79.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
@@ -538,52 +538,52 @@ LaTeX Info: Redefining \ref on input line 79.
 LaTeX Info: Redefining \pageref on input line 79.
 LaTeX Info: Redefining \nameref on input line 79.
 
-(E:\科研\论文\缓存\AutoLoadCache\IJWGS\paper.out)
-(E:\科研\论文\缓存\AutoLoadCache\IJWGS\paper.out)
+(E:\科研\论文\缓存\AutoLoadCache\IJWGS\最终稿\paper.out)
+(E:\科研\论文\缓存\AutoLoadCache\IJWGS\最终稿\paper.out)
 \@outlinefile=\write4
 \c@lstlisting=\count152
-
-Overfull \hbox (24.0pt too wide) in paragraph at lines 91--91
-[][]|  
- []
-
-
-Overfull \hbox (24.0pt too wide) in paragraph at lines 91--91
-|[]  
- []
-
-
-Underfull \vbox (badness 1515) has occurred while \output is active []
-
-LaTeX Font Info:    Try loading font information for U+msa on input line 107.
+LaTeX Font Info:    Try loading font information for U+msa on input line 89.
 
 (D:\CTEX\MiKTeX\tex\latex\amsfonts\umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 107.
+LaTeX Font Info:    Try loading font information for U+msb on input line 89.
 
 (D:\CTEX\MiKTeX\tex\latex\amsfonts\umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 107.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 89.
 
 (D:\CTEX\MiKTeX\tex\latex\base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 107.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 89.
 
 (D:\CTEX\MiKTeX\tex\latex\jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Overfull \hbox (2.5pt too wide) has occurred while \output is active
-|[][]
+Underfull \hbox (badness 10000) in paragraph at lines 90--90
+
  []
 
-[1{D:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}
 
-]
+Overfull \hbox (24.0pt too wide) in paragraph at lines 133--133
+[][]|  
+ []
+
+
+Underfull \vbox (badness 4556) has occurred while \output is active []
+
+ [1
+
+{D:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}]
+Overfull \hbox (24.0pt too wide) in paragraph at lines 133--133
+|[]  
+ []
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
-\LY1/ptm/m/n/10 2| \LY1/ptm/m/it/10 author
+\LY1/ptm/m/n/10 2| \LY1/ptm/m/it/10 K. Ma, X. Niu, Z. Yu, and K. Ji
  []
 
 
@@ -591,35 +591,48 @@ Overfull \hbox (2.5pt too wide) has occurred while \output is active
 |[][]
  []
 
-[2] <img/architecture.png, id=154, 406.1574pt x 218.7372pt>
+[2]
+Overfull \hbox (2.5pt too wide) has occurred while \output is active
+|[][]
+ []
+
+[3]
+Underfull \hbox (badness 10000) has occurred while \output is active
+\LY1/ptm/m/n/10 4| \LY1/ptm/m/it/10 K. Ma, X. Niu, Z. Yu, and K. Ji
+ []
+
+
+Overfull \hbox (2.5pt too wide) has occurred while \output is active
+|[][]
+ []
+
+[4] <img/architecture.png, id=173, 406.1574pt x 218.7372pt>
 File: img/architecture.png Graphic file (type png)
 
 <use img/architecture.png>
-Package pdftex.def Info: img/architecture.png used on input line 142.
+Package pdftex.def Info: img/architecture.png used on input line 184.
 (pdftex.def)             Requested size: 360.0pt x 193.87778pt.
-
-Overfull \hbox (2.5pt too wide) has occurred while \output is active
-|[][]
- []
-
-[3] <img/process.png, id=169, 461.5644pt x 374.3586pt>
+ <img/process.png, id=176, 461.5644pt x 374.3586pt>
 File: img/process.png Graphic file (type png)
- <use img/process.png>
-Package pdftex.def Info: img/process.png used on input line 150.
-(pdftex.def)             Requested size: 360.0pt x 291.98138pt.
 
-<img/autoloading.png, id=171, 369.5406pt x 173.9298pt>
+<use img/process.png>
+Package pdftex.def Info: img/process.png used on input line 192.
+(pdftex.def)             Requested size: 360.0pt x 291.98138pt.
+ <img/autoloading.png, id=178, 369.5406pt x 173.9298pt>
 File: img/autoloading.png Graphic file (type png)
 
 <use img/autoloading.png>
-Package pdftex.def Info: img/autoloading.png used on input line 158.
+Package pdftex.def Info: img/autoloading.png used on input line 200.
 (pdftex.def)             Requested size: 360.0pt x 169.44153pt.
 
-Underfull \vbox (badness 6078) has occurred while \output is active []
+Overfull \hbox (2.5pt too wide) has occurred while \output is active
+|[][]
+ []
 
-
+[5 <E:/科研/论文/缓存/AutoLoadCache/IJWGS/最终稿/img/architecture.png>
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
-\LY1/ptm/m/n/10 4| \LY1/ptm/m/it/10 author
+\LY1/ptm/m/n/10 6| \LY1/ptm/m/it/10 K. Ma, X. Niu, Z. Yu, and K. Ji
  []
 
 
@@ -627,40 +640,24 @@ Overfull \hbox (2.5pt too wide) has occurred while \output is active
 |[][]
  []
 
-[4 <E:/科研/论文/缓存/AutoLoadCache/IJWGS/img/architecture.png>]
-Overfull \hbox (2.5pt too wide) has occurred while \output is active
-|[][]
- []
-
-[5 <E:/科研/论文/缓存/AutoLoadCache/IJWGS/img/process.png>]
-<img/loadwaiting.png, id=188, 215.8464pt x 115.632pt>
+[6 <E:/科研/论文/缓存/AutoLoadCache/IJWGS/最终稿/img/process.png>]
+<img/loadwaiting.png, id=194, 215.8464pt x 115.632pt>
 File: img/loadwaiting.png Graphic file (type png)
 
 <use img/loadwaiting.png>
-Package pdftex.def Info: img/loadwaiting.png used on input line 188.
+Package pdftex.def Info: img/loadwaiting.png used on input line 230.
 (pdftex.def)             Requested size: 288.0011pt x 154.28618pt.
 
-Underfull \hbox (badness 10000) has occurred while \output is active
-\LY1/ptm/m/n/10 6| \LY1/ptm/m/it/10 author
- []
-
-
 Overfull \hbox (2.5pt too wide) has occurred while \output is active
 |[][]
  []
 
-[6 <E:/科研/论文/缓存/AutoLoadCache/IJWGS/img/autoloading.png> <E:/科研
-/论文/缓存/AutoLoadCache/IJWGS/img/loadwaiting.png>]
+[7 <E:/科研/论文/缓存/AutoLoadCache/IJWGS/最终稿/img/autoloading.png>]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 197.
+put line 239.
 
-Overfull \hbox (2.5pt too wide) has occurred while \output is active
-|[][]
- []
-
-[7]
 Underfull \hbox (badness 10000) has occurred while \output is active
-\LY1/ptm/m/n/10 8| \LY1/ptm/m/it/10 author
+\LY1/ptm/m/n/10 8| \LY1/ptm/m/it/10 K. Ma, X. Niu, Z. Yu, and K. Ji
  []
 
 
@@ -668,12 +665,11 @@ Overfull \hbox (2.5pt too wide) has occurred while \output is active
 |[][]
  []
 
-[8]
-Underfull \hbox (badness 3209) in paragraph at lines 258--259
-$\OT1/cmr/m/n/10 @\OML/cmm/m/it/10 CacheDelete$ \LY1/ptm/m/n/10 and $\OT1/cmr/m
-/n/10 @\OML/cmm/m/it/10 CacheDeleteKey$ \LY1/ptm/m/n/10 implement the cache del
-eting strategy.
- []
+[8 <E:/科研/论文/缓存/AutoLoadCache/IJWGS/最终稿/img/loadwaiting.png>]
+
+Package amsmath Warning: Foreign command \over;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 281.
 
 
 Overfull \hbox (2.5pt too wide) has occurred while \output is active
@@ -681,8 +677,15 @@ Overfull \hbox (2.5pt too wide) has occurred while \output is active
  []
 
 [9]
+Underfull \hbox (badness 3209) in paragraph at lines 300--301
+$\OT1/cmr/m/n/10 @\OML/cmm/m/it/10 CacheDelete$ \LY1/ptm/m/n/10 and $\OT1/cmr/m
+/n/10 @\OML/cmm/m/it/10 CacheDeleteKey$ \LY1/ptm/m/n/10 implement the cache del
+eting strategy.
+ []
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
-\LY1/ptm/m/n/10 10| \LY1/ptm/m/it/10 author
+\LY1/ptm/m/n/10 10| \LY1/ptm/m/it/10 K. Ma, X. Niu, Z. Yu, and K. Ji
  []
 
 
@@ -690,47 +693,63 @@ Overfull \hbox (2.5pt too wide) has occurred while \output is active
 |[][]
  []
 
-[10] <img/exp1-2.png, id=248, 425.59pt x 316.18124pt>
+[10]
+Overfull \hbox (2.5pt too wide) has occurred while \output is active
+|[][]
+ []
+
+[11] <img/exp1-2.png, id=255, 425.59pt x 316.18124pt>
 File: img/exp1-2.png Graphic file (type png)
  <use img/exp1-2.png>
-Package pdftex.def Info: img/exp1-2.png used on input line 346.
+Package pdftex.def Info: img/exp1-2.png used on input line 388.
 (pdftex.def)             Requested size: 360.0pt x 267.46716pt.
 
-<img/exp3-4.png, id=249, 425.59pt x 317.185pt>
+<img/exp3-4.png, id=256, 425.59pt x 317.185pt>
 File: img/exp3-4.png Graphic file (type png)
  <use img/exp3-4.png>
-Package pdftex.def Info: img/exp3-4.png used on input line 353.
+Package pdftex.def Info: img/exp3-4.png used on input line 395.
 (pdftex.def)             Requested size: 360.0pt x 268.31627pt.
 
-<img/exp5-6.png, id=250, 431.6125pt x 319.1925pt>
+<img/exp5-6.png, id=257, 431.6125pt x 319.1925pt>
 File: img/exp5-6.png Graphic file (type png)
  <use img/exp5-6.png>
-Package pdftex.def Info: img/exp5-6.png used on input line 360.
+Package pdftex.def Info: img/exp5-6.png used on input line 402.
 (pdftex.def)             Requested size: 360.0pt x 266.23985pt.
 
-Overfull \hbox (2.5pt too wide) has occurred while \output is active
-|[][]
- []
-
-[11 <E:/科研/论文/缓存/AutoLoadCache/IJWGS/img/exp1-2.png (PNG copy)>]
 <img/resource.png, id=262, 481.8pt x 287.0725pt>
 File: img/resource.png Graphic file (type png)
  <use img/resource.png>
-Package pdftex.def Info: img/resource.png used on input line 373.
+Package pdftex.def Info: img/resource.png used on input line 415.
 (pdftex.def)             Requested size: 360.0pt x 214.5066pt.
 
-<img/pressuretest.png, id=263, 482.80376pt x 290.08376pt>
+<img/pressuretest.png, id=263, 523.7166pt x 293.898pt>
 File: img/pressuretest.png Graphic file (type png)
 
 <use img/pressuretest.png>
-Package pdftex.def Info: img/pressuretest.png used on input line 382.
-(pdftex.def)             Requested size: 360.0pt x 216.30519pt.
+Package pdftex.def Info: img/pressuretest.png used on input line 424.
+(pdftex.def)             Requested size: 360.0pt x 202.03194pt.
 
+Underfull \hbox (badness 10000) has occurred while \output is active
+\LY1/ptm/m/n/10 12| \LY1/ptm/m/it/10 K. Ma, X. Niu, Z. Yu, and K. Ji
+ []
+
+
+Overfull \hbox (2.5pt too wide) has occurred while \output is active
+|[][]
+ []
+
+[12]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
+Overfull \hbox (2.5pt too wide) has occurred while \output is active
+|[][]
+ []
+
+[13 <E:/科研/论文/缓存/AutoLoadCache/IJWGS/最终稿/img/exp1-2.png (PNG 
+copy)>] (E:\科研\论文\缓存\AutoLoadCache\IJWGS\最终稿\paper.bbl
 Underfull \hbox (badness 10000) has occurred while \output is active
-\LY1/ptm/m/n/10 12| \LY1/ptm/m/it/10 author
+\LY1/ptm/m/n/10 14| \LY1/ptm/m/it/10 K. Ma, X. Niu, Z. Yu, and K. Ji
  []
 
 
@@ -738,15 +757,16 @@ Overfull \hbox (2.5pt too wide) has occurred while \output is active
 |[][]
  []
 
-[12 <E:/科研/论文/缓存/AutoLoadCache/IJWGS/img/exp3-4.png (PNG copy)>]
-(E:\科研\论文\缓存\AutoLoadCache\IJWGS\paper.bbl
+[14 <E:/科研/论文/缓存/AutoLoadCache/IJWGS/最终稿/img/exp3-4.png (PNG 
+copy)>]
 Overfull \hbox (2.5pt too wide) has occurred while \output is active
 |[][]
  []
 
-[13 <E:/科研/论文/缓存/AutoLoadCache/IJWGS/img/exp5-6.png (PNG copy)>]
+[15 <E:/科研/论文/缓存/AutoLoadCache/IJWGS/最终稿/img/exp5-6.png (PNG 
+copy)>]
 Underfull \hbox (badness 10000) has occurred while \output is active
-\LY1/ptm/m/n/10 14| \LY1/ptm/m/it/10 author
+\LY1/ptm/m/n/10 16| \LY1/ptm/m/it/10 K. Ma, X. Niu, Z. Yu, and K. Ji
  []
 
 
@@ -754,44 +774,44 @@ Overfull \hbox (2.5pt too wide) has occurred while \output is active
 |[][]
  []
 
-[14 <E:/科研/论文/缓存/AutoLoadCache/IJWGS/img/resource.png (PNG copy)> <
-E:/科研/论文/缓存/AutoLoadCache/IJWGS/img/pressuretest.png (PNG copy)>])
-
+[16 <E:/科研/论文/缓存/AutoLoadCache/IJWGS/最终稿/img/resource.png (PN
+G copy)> <E:/科研/论文/缓存/AutoLoadCache/IJWGS/最终稿/img/pressuretes
+t.png>]) 
 AED: lastpage setting LastPage
 
 Overfull \hbox (2.5pt too wide) has occurred while \output is active
 |[][]
  []
 
-[15]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 407.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 407.
- (E:\科研\论文\缓存\AutoLoadCache\IJWGS\paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 407.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 407.
+[17]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 455.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 455.
+ (E:\科研\论文\缓存\AutoLoadCache\IJWGS\最终稿\paper.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 455.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 455.
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: ECE888CC9413021D2AC17801E0EC2EFB;1660.
+(rerunfilecheck)             Checksum: 7238A6C200887D19596CE3429A7C7FB1;1708.
  ) 
 Here is how much of TeX's memory you used:
- 9435 strings out of 495354
- 127907 string characters out of 3183859
- 225611 words of memory out of 3000000
- 12326 multiletter control sequences out of 15000+200000
+ 9441 strings out of 495354
+ 128113 string characters out of 3183858
+ 226649 words of memory out of 3000000
+ 12328 multiletter control sequences out of 15000+200000
  27615 words of font info for 71 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,15n,35p,1593b,586s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,15n,35p,1458b,586s stack positions out of 5000i,500n,10000p,200000b,50000s
 {D:/CTEX/MiKTeX/fonts/enc/dvips/fontname/texnansi.enc}<D:/CTEX/MiKTeX/fonts/t
 ype1/public/amsfonts/cm/cmmi10.pfb><D:/CTEX/MiKTeX/fonts/type1/public/amsfonts/
 cm/cmmi5.pfb><D:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/CTEX/
 MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><D:/CTEX/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmr10.pfb><D:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.p
+lic/amsfonts/cm/cmr10.pfb><D:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.p
 fb><D:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/CTEX/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmsy5.pfb><D:/CTEX/MiKTeX/fonts/type1/urw/times/ut
+nts/type1/public/amsfonts/cm/cmsy7.pfb><D:/CTEX/MiKTeX/fonts/type1/urw/times/ut
 mb8a.pfb><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><D:/CTEX/MiKTeX/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (15 pages, 346119 bytes).
+Output written on paper.pdf (17 pages, 372330 bytes).
 PDF statistics:
- 343 PDF objects out of 1000 (max. 8388607)
- 92 named destinations out of 1000 (max. 500000)
- 246 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 357 PDF objects out of 1000 (max. 8388607)
+ 96 named destinations out of 1000 (max. 500000)
+ 254 words of extra memory for PDF output out of 10000 (max. 10000000)
 
