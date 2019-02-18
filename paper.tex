@@ -29,6 +29,7 @@
 \usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage[tight,footnotesize]{subfigure}
+\usepackage{caption}
 %
 
 \def\newblock{\hskip .11em plus .33em minus .07em}
@@ -360,7 +361,9 @@ valueType & Return type of intercepted method\\
 \label{Experiments}
 
 \subsection{Experiment Setup}
-Three experiments are designed to illustrate the ACALFA performance in high-concurrency scenario. The metrics are response time, resource consumption and stability. Response time is for validating the optimization of auto loading, especially for time-consuming tasks and high-frequent business. Resource consumption is for validating the load waiting performance when handling the same requests. Stability testing uses multiple threads to access applications simultaneously to simulate high concurrency. The server with ACALFA is an Intel Core i7 @ 3.40GHz CPU, 16GB memory, and 100Mbps bandwidth, and this server runs a 64-bit Windows 10 with a Java 1.8 64-bit server JVM. Another server with MySQL database runs on Ali ECS Cloud Server: 2 core 2.60GHz Intel Xeon E5-2650 CPU machines with 4 GB RAM, 40GB SSD and 100 Mbps Ethernet. The system is CentOS 6.8 x64. Spring Cache, a well-known cache management framework at j2ee, will be compared with ACALFA for performance. The dataset, the structure is shown in Table \ref{VTS}, is selected 4,000 records randomly from a voting system.
+There are three experiments for elaborating the ACALFA performance in the environment that is closed to the real. We use response time, resource consumption and stability as the indicators to compare with other cache management system. Response time reflects the efficiency of cache management system and the extent of performance optimization. Besides, we focus on the tasks that is time-consuming and high-frequent accessed. Resource consumption validates the performance that loads data from database. Stability testing simulates high concurrency environment by multi-threading to test the cache management performance and stability. To compare with performance, we chose Spring Cache, a well-known cache management framework at j2ee, as control group. Besides, we selected 4,000 records randomly from a voting system as dataset. Its structure is shown in Table \ref{VTS}.
+
+In this experiment, the back-end application with ACALFA is running in the server, which has an Intel Core i7 @ 3.40GHz CPU, 16GB memory, 100Mbps Ethernet, and a 64-bit Windows 10 with a Java 1.8 64-bit JVM. The database sever runs on Aliyun, a Chinese cloud computing company, which has 2 core 2.60GHz Intel Xeon E5-2650 CPU, 4 GB RAM, 40GB SSD and 100 Mbps Ethernet. The system is CentOS 6.8 x64.
 
 \begin{table*}[htb]
 \begin{center}
@@ -369,10 +372,10 @@ Three experiments are designed to illustrate the ACALFA performance in high-conc
  \toprule
     Field & Type & Description\\
  \midrule
-    id & INT & primary key\\
-    candidate\_id & INT & candidate identification\\
-    voter\_id & INT & voter identification\\
-    score & INT & candidate scores between 1, 100\\
+    id & INT & vote id, a primary key\\
+    candidate\_id & INT & candidate id, a foreign key\\
+    voter\_id & INT & voter id, a foreign key\\
+    score & INT & voter's given score to the candidate, the constraint is between 1 to 100\\
 \bottomrule
  \end{tabular}
 \end{center}
@@ -380,40 +383,31 @@ Three experiments are designed to illustrate the ACALFA performance in high-conc
 
 \subsection{Response Time}
 
-We set up six experiments to test the ACALFA effect. Cache expired time we set was 120s and enabled auto loading and load waiting for ACALFA. Exp1, exp3 and exp5 used ACALFA, on the contrary, others used Spring Cache. The experiment sets are as follow:
+There are six experiments to test the ACALFA performance. The preset parameters are: cache expired time is 120(s), auto loading and load waiting is enabled. Experiment 1, 3 and 5 uses ACALFA, others uses Spring Cache. The first group, experiment 1 and 2, simulates that users access the target data for the first time. In other words, the target data are not in the cache. Hence, the cache management frameworks obtain the data from database. The second group, experiment 3 and 4, however, simulates that users access hot-spot data, which is in the cache. The third group, experiment 5 and 6 simulates cache expired scenario. That is to say users request the data after 120 seconds from last time.
 
-\begin{itemize}
-    \item Exp1 \& Exp2: The resources that will be requested were not in cache. Therefore, the frameworks should fetch data from database.
-    \item Exp3 \& Exp4: The response time when cache hit.
-    \item Exp5 \& Exp6: After exp1 and exp2 120s, in other words, cache expired, we send requests again for validating the effect of auto loading.
-\end{itemize}
-
-\begin{figure} [htb]
+\begin{table}[htb]
     \centering
-    \includegraphics[width=1\linewidth]{img/exp1-2.png}
-    \caption{Response time of Exp1 and Exp2}
-    \label{exp1-2}
-\end{figure}
+    \caption{The Experiment Results of Response Time.}
+    \label{response time}
+    \begin{tabular}{lllllll}
+         \toprule
+         \textbf{\# threading} & \textbf{Exp 1} & \textbf{Exp 2} & \textbf{Exp 3} & \textbf{Exp 4} & \textbf{Exp 5} & \textbf{Exp 6} \\
+         \midrule
+         \textbf{100} & 301.21 & 213.45 & 7.26 & 8.85 & 8.94 & 358.03 \\
+         \textbf{500} & 468.01 & 480.14 & 9.53 & 6.17 & 11.94 & 440.38 \\
+         \textbf{1000} & 423.12 & 421.29 & 12.00 & 11.12 & 13.92 & 419.21 \\
+         \textbf{1500} & 512.14 & 514.04 & 10.12 & 10.10 & 12.21 & 521.95 \\
+         \textbf{2000} & 1694.09 & 1523.91 & 45.21 & 46.18 & 47.11 & 1534.19 \\
+         \bottomrule
+    \end{tabular}
+    \\ \vskip .2cm Note: The unit of results is milliseconds(ms).
+\end{table}
 
-\begin{figure} [htb]
-    \centering
-    \includegraphics[width=1\linewidth]{img/exp3-4.png}
-    \caption{Response time of Exp3 and Exp4}
-    \label{exp3-4}
-\end{figure}
-
-\begin{figure} [htb]
-    \centering
-    \includegraphics[width=1\linewidth]{img/exp5-6.png}
-    \caption{Response time of Exp5 and Exp6}
-    \label{exp5-6}
-\end{figure}
-
-We use the 90th percentile response time for performance measurement. Figure \ref{exp1-2} and figure \ref{exp3-4} shows the response time is increasing with the increase of number of threads. The performance of two cache management systems when cache miss or cache hit is same roughly. Figure \ref{exp5-6}, however, shows vast difference between ACALFA with auto loading and Spring Cache. The reason is obviously: ACALFA will reload data when the cache is going to expire, but Spring Cache can't. According to this range of experiments, we found auto loading is suited to the hot-spot data and has better cache effects for the more time-consuming or more frequent data.
+These groups of experiments uses the 90th percentile response time as performance indicator. The results show in the Table \ref{response time}. The first group and the second group indicates whether cache enabled or not the response becomes slow with the user increase. In the normal scenario, the performance of these two cache management frameworks is extremely similar. The third group, nevertheless, shows huge difference between ACALFA with auto loading and Spring Cache. The reason is obviously: ACALFA reloads the data when it is about to expire, but Spring Cache can't. According to these experiments, we found auto loading is suitable for the hot-spot data and has better cache performance for the time-consuming and accessing frequently data.
 
 \subsection{Resource Consumption}
 
-Resource consumption experiment is set for validating the load wait performance. Therefore, the cache is disabled and the query statement is changed to join two tables for increasing cpu usage. There are 30 threads and request 10 times repeatedly. The CPU usage is shown in figure \ref{resource}. From results, CPU usage of non-load-wait lasted for a long time in 100\%. However, ACALFA selected a leader to fetch data in each round of request to reduce the CPU consumption. When elapsed time is more than 30 seconds, the CPU usage of ACALFA is higher than Spring Cache as distributing the data of leader will consume some times. But the most important thing is ACALFA keeps the system run stably. According to the results, we found wait-load strategy is effective in cache miss situation. Coordinate with auto-load, ACALFA can deal with complex and high-concurrent scenario well.
+Resource consumption experiment is for validating the load wait performance. Therefore, the cache is disabled and the query statement is changed to join two tables for increasing cpu usage. There are 30 threads and request 10 times repeatedly. The CPU usage is shown in figure \ref{resource}. From results, CPU usage of non-load-wait lasted for a long time in 100\%. However, ACALFA selected a leader to fetch data in each round of request to reduce the CPU consumption. When elapsed time is more than 30 seconds, the CPU usage of ACALFA is higher than Spring Cache as distributing the data of leader will consume some times. But the most important thing is ACALFA keeps the system run stably. According to the results, we found wait-load strategy is effective in cache miss situation. Coordinate with auto-load, ACALFA can deal with complex and high-concurrent scenario well.
 
 \begin{figure} [htb]
     \centering
