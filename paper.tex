@@ -29,7 +29,6 @@
 \usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage[tight,footnotesize]{subfigure}
-\usepackage{caption}
 %
 
 \def\newblock{\hskip .11em plus .33em minus .07em}
@@ -400,32 +399,58 @@ There are six experiments to test the ACALFA performance. The preset parameters 
          \textbf{2000} & 1694.09 & 1523.91 & 45.21 & 46.18 & 47.11 & 1534.19 \\
          \bottomrule
     \end{tabular}
-    \\ \vskip .2cm Note: The unit of results is milliseconds(ms).
+    \\ \vskip .2cm \footnotesize{The unit of results is milliseconds(ms).}
 \end{table}
 
 These groups of experiments uses the 90th percentile response time as performance indicator. The results show in the Table \ref{response time}. The first group and the second group indicates whether cache enabled or not the response becomes slow with the user increase. In the normal scenario, the performance of these two cache management frameworks is extremely similar. The third group, nevertheless, shows huge difference between ACALFA with auto loading and Spring Cache. The reason is obviously: ACALFA reloads the data when it is about to expire, but Spring Cache can't. According to these experiments, we found auto loading is suitable for the hot-spot data and has better cache performance for the time-consuming and accessing frequently data.
 
 \subsection{Resource Consumption}
 
-Resource consumption experiment is for validating the load wait performance. Therefore, the cache is disabled and the query statement is changed to join two tables for increasing cpu usage. There are 30 threads and request 10 times repeatedly. The CPU usage is shown in figure \ref{resource}. From results, CPU usage of non-load-wait lasted for a long time in 100\%. However, ACALFA selected a leader to fetch data in each round of request to reduce the CPU consumption. When elapsed time is more than 30 seconds, the CPU usage of ACALFA is higher than Spring Cache as distributing the data of leader will consume some times. But the most important thing is ACALFA keeps the system run stably. According to the results, we found wait-load strategy is effective in cache miss situation. Coordinate with auto-load, ACALFA can deal with complex and high-concurrent scenario well.
+To test load waiting performance, we set resource consumption experiment, which the function of cache and auto loading turns off and the query statement is changed to join two tables for augmenting cpu usage. 30 threading simulates 30 users to request the target data 10 times repeatedly. The results show in the table \ref{CPU Consumption}. From the result, the cpu usage of Spring Cache with non load-waiting feature lasts for a long time in 100\%. ACALFA, however, benefits from load-waiting feature that elects a leader to obtain the data in each round of requests to reduce the CPU usage on the database server. When elapsed time is more than 30 seconds, the CPU usage of ACALFA is higher than Spring Cache as distributing the data of leader will consume some times. But the most important thing is ACALFA keeps the system run stably. According to the results, we found wait-loading strategy is effective in cache miss situation. Coordinate with auto-load, ACALFA can deal with complex and high-concurrent scenario well.
 
-\begin{figure} [htb]
+\begin{table}[htb]
     \centering
-    \includegraphics[width=1\linewidth]{img/resource.png}
-    \caption{CPU usage of performing the select statement}
-    \label{resource}
-\end{figure}
+    \caption{The CPU Consumption of Performing the SQL JOIN Statement.}
+    \label{CPU Consumption}
+    \begin{tabular}{llllllllll}
+        \toprule
+        \textbf{Time(s)} & \textbf{0} & \textbf{5} & \textbf{10} & \textbf{15} & \textbf{20} & \textbf{25} & \textbf{30} & \textbf{35} & \textbf{40} \\
+        \midrule
+        \textbf{ACALFA(\%)} & 1 & 18 & 3 & 20 & 21 & 77 & 54 & 54 & 0 \\
+        \textbf{Spring Cache(\%)} & 100 & 100 & 100 & 100 & 100 & 100 & 44 & 0 & 0 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \subsection{Pressure Test}
-
- \begin{figure}
+ 
+ \begin{table}[htb]
      \centering
-     \includegraphics[width=1\linewidth]{img/pressuretest.png}
      \caption{Pressure with different methods}
      \label{pressuretest}
- \end{figure}
+     \begin{tabular}{llll}
+         \toprule
+         \textbf{Indicator} & \textbf{ACALFA $^1$} & \textbf{ACALFA $^2$} & \textbf{Spring Cache} \\
+         \midrule
+         \textbf{\# Samples(100,000)} & 1.452 & 1.352 & 0.832 \\
+         \textbf{90\% Line(10ms)} & 5.5 & 5.7 & 7.8 \\
+         \textbf{Error Rate(\%)} & 0 & 0.06 & 0.12 \\
+         \textbf{Throughput(requests/s)} & 2251 & 2213 & 1467 \\
+         \bottomrule
+     \end{tabular} \\ \vskip .2cm
+     \footnotesize{$^1$ ACALFA with Auto Loading, $^2$ ACALFA without Auto Loading.}\\
+ \end{table}
 
- The pressure test is getting access to a page repeatedly within one minute in order to test the stability of ACALFA in high concurrency. We used 100 threads to simulate 100 users for requesting the targeting page simultaneously. We can infer the system availability and response speed from the report. The query statement is same as resource consumption experiment. We can learn ACALFA response is 25\% faster than Spring Cache, processing speed is 48\% faster and stability has improved 36\% from above figure \ref{pressuretest}.
+ In this part of experiment, we access to a page repeatedly within one minute to validate the stability of the cache management frameworks. We employ 100 threading to simulate 100 users for requesting the targeting page simultaneously. The query statements are the same as resource consumption experiment. It should be noted that the tool we used is JMeter, an open source pressure test tool, to do this experiment. The formula \ref{throughput} explains how to calculate throughput in JMeter.
+
+ \begin{center}
+ \begin{eqnarray}
+     \label{throughput}
+     throughput = \frac{number\ of\ request}{total\ time}
+ \end{eqnarray}
+ \end{center}
+
+ We can learn ACALFA response is 25\% faster than Spring Cache, processing speed is 48\% faster and stability has improved 36\% from above table \ref{pressuretest}.
 
 \section{Conclusions}
 \label{Conclusions}
